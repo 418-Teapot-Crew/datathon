@@ -1,4 +1,5 @@
 import 'package:datathon/add/add_screen.dart';
+import 'package:datathon/const/color.dart';
 import 'package:datathon/places/places_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -28,48 +29,15 @@ class _HomeScreenState extends State<HomeScreen> {
               _currentIndex = value;
             });
           },
+          selectedItemColor: CustomColors.primaryColor,
+          unselectedItemColor: Colors.grey,
           currentIndex: _currentIndex,
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.add), label: "Ekle"),
-            BottomNavigationBarItem(icon: Icon(Icons.abc), label: ""),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.list_alt), label: "Alanlarım"),
           ]),
       body: _children[_currentIndex],
     );
   }
 }
-/**
- * Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Expanded(
-                    child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(lat),
-                    CustomTextField(textEditingController: latTec, hint: "")
-                  ],
-                )),
-                const SizedBox(
-                  width: 10,
-                ),
-                Expanded(
-                    child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(lon),
-                    CustomTextField(textEditingController: latTec, hint: "")
-                  ],
-                ))
-              ],
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            CustomButtom(onClick: () {}, text: "Kaydet")
-          ],
-        ),
-      )
- */

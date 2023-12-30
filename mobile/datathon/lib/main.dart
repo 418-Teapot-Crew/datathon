@@ -1,3 +1,4 @@
+import 'package:datathon/const/color.dart';
 import 'package:datathon/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -21,13 +22,14 @@ class MyApp extends StatelessWidget {
           elevatedButtonTheme: ElevatedButtonThemeData(
               style: ButtonStyle(
             backgroundColor: MaterialStateProperty.resolveWith(
-                (states) => const Color(0xFF4CA6A8)),
+                (states) => CustomColors.primaryColor),
             foregroundColor:
                 MaterialStateProperty.resolveWith((states) => Colors.white),
           )),
           appBarTheme:
               const AppBarTheme(color: Colors.transparent, centerTitle: true),
-          buttonTheme: const ButtonThemeData(buttonColor: Color(0xFF4CA6A8))),
+          buttonTheme:
+              const ButtonThemeData(buttonColor: CustomColors.primaryColor)),
       home: const SplashScreen(),
     );
   }
