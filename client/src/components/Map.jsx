@@ -25,7 +25,7 @@ const Map = () => {
         zoomDelta={1}
         maxBounds={bounds}
         maxZoom={18}
-        minZoom={7}
+        minZoom={8.3}
       >
         <TileLayer
           attribution="418 Teapot Askerleri"
@@ -120,6 +120,61 @@ function drawNeighbourhoodBoundary(map, bounds) {
             map.fitBounds(e.target.getBounds(), {
               animate: true,
             });
+            map.openPopup(
+              `<div class="w-full h-min">
+              <div class="text-center text-blue-500 text-2xl mb-3">
+                ${element.properties.ADI_NUMARA} Mahallesi
+              </div>
+              <table class="w-full border border-blue-400 table-fixed">
+              <thead class="bg-blue-400 text-white">
+                <tr>
+                  <th class="py-2 ps-2">Bilgi</th>  
+                  <th class="py-2 ps-2">Veri</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="bg-blue-100 text-black border border-blue-400">
+                  <td class="py-2 ps-2">Sulak alan miktarı</td>
+                  <td class="py-2 ps-2">50%</td>
+                </tr>
+                <tr class="bg-blue-100 text-black border border-blue-400">
+                  <td class="py-2 ps-2">En çok yetiştirilen ürünler</td>
+                  <td class="py-2 ps-2">Buğday, Şeker Pancarı</td>
+                </tr>
+                <tr class="bg-white text-black border border-blue-400">
+                  <td class="py-2 ps-2">Sulama Suyu Kaynağı Yönetimi</td>
+                  <td class="py-2 ps-2">Şahsi Kuyular</td>
+                </tr>
+                <tr class="bg-blue-100 text-black border border-blue-400">
+                  <td class="py-2 ps-2">Sulanabilir alanda yetiştirilen ürünler</td>
+                  <td class="py-2 ps-2">Elma, Kiraz, Vişne</td>
+                </tr>
+                <tr class="bg-white text-black border border-blue-400">
+                  <td class="py-2 ps-2">Sulama suyu kaynağı</td>
+                  <td class="py-2 ps-2">Yeraltı Suları</td>
+                </tr>
+                <tr class="bg-blue-100 text-black border border-blue-400">
+                  <td class="py-2 ps-2">Sulama suyu durum bilgisi</td>
+                  <td class="py-2 ps-2">Var</td>
+                </tr>
+                <tr class="bg-blue-100 text-black border border-blue-400">
+                  <td class="py-2 ps-2">Açıklama</td>
+                  <td class="py-2 ps-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</td>
+                </tr>
+                <tr class="bg-blue-100 text-black border border-blue-400">
+                  <td class="py-2 ps-2">Bu bölge için önerilen ürünler</td>
+                  <td class="py-2 ps-2">KİRAZ, ELMA, ÇİLEK, BİLMEM NEY</td>
+                </tr>
+              </tbody>
+            </table></div>`,
+              e.latlng,
+              {
+                minWidth: 500,
+                maxWidth: 1000,
+                maxHeight: 1000,
+                keepInView: true,
+              }
+            );
           })
         );
       }
