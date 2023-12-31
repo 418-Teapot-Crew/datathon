@@ -115,10 +115,10 @@ function drawNeighbourhoodBoundary(map, bounds) {
               weight: 1,
             },
           }).on('click', async (e) => {
-            // e.target.setStyle({
-            //   fillColor: 'purple',
-            //   weight: 1,
-            // });
+            e.target.setStyle({
+              fillColor: 'purple',
+              weight: 1,
+            });
             map.fitBounds(e.target.getBounds(), {
               animate: true,
               maxZoom: 12,
@@ -206,16 +206,14 @@ function drawNeighbourhoodBoundary(map, bounds) {
                       .join('')}</td>
                   </tr>
                   ${
-                    bounds.properties.ILCEADI == 'KARAPINAR' ? (
-                      `<tr class="bg-white-100 text-black border border-green-400">
+                    bounds.properties.ILCEADI == 'KARAPINAR'
+                      ? `<tr class="bg-red-100 text-black border border-green-400">
                         <td class="py-2 ps-2">
                           Bu bölge için önerilmeyen ürünler
                         </td>
                         <td class="py-2 ps-2">MISIR</td>
                       </tr>`
-                    ) : (
-                      ''
-                    )
+                      : ''
                   }
                 </tbody>
               </table></div>`,
