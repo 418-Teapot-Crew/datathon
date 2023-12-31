@@ -20,8 +20,14 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: _currentIndex == 0
-            ? const Text("Alan Ekle")
-            : const Text("Alanlar"),
+            ? const Text(
+                "Alan Ekle",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              )
+            : const Text(
+                "Alanlar",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
       ),
       bottomNavigationBar: BottomNavigationBar(
           onTap: (value) {
@@ -33,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
           unselectedItemColor: Colors.grey,
           currentIndex: _currentIndex,
           items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.add), label: "Ekle"),
+            BottomNavigationBarItem(icon: Icon(Icons.add_box), label: "Ekle"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.list_alt), label: "Alanlarım"),
           ]),

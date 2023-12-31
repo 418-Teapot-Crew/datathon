@@ -12,9 +12,9 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final String welcome = "Hoşgeldin";
-  final String description = "Gül eğlen oyna";
+  final String description = "Verimli kaynak verimli tarım";
   final String email = "Email";
-  final String password = "Şifreds";
+  final String password = "Şifre";
 
   final TextEditingController emailTec = TextEditingController();
   final TextEditingController passwordTec = TextEditingController();
@@ -52,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
               CustomTextField(
                   textEditingController: passwordTec,
                   icon: const Icon(Icons.visibility_off),
-                  hint: email),
+                  hint: password),
               const SizedBox(
                 height: 5,
               ),

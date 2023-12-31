@@ -38,8 +38,7 @@ class _PlacesScreenState extends State<PlacesScreen> {
                     color: Colors.green,
                     width: 2.0,
                   ),
-                  borderRadius:
-                      BorderRadius.circular(10.0), // Kenar yuvarlaklığı
+                  borderRadius: BorderRadius.circular(10.0),
                 ),
                 child: ListTile(
                   leading: const Icon(Icons.location_on),

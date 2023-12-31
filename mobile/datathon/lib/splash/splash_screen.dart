@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:datathon/const/color.dart';
 import 'package:datathon/login/login_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,9 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       appBar: AppBar(),
       body: const Center(
-        child: Icon(Icons.abc_rounded),
+        child: CircularProgressIndicator(
+          color: CustomColors.primaryColor,
+        ),
       ),
     );
   }
