@@ -54,12 +54,11 @@ def get_neighborhood_info(neighborhood_name: str ):
 async def read_item(lat: float | None = None, long: float| None = None, neighborhood_name: str| None = None):
     if neighborhood_name:
         res = get_neighborhood_info(neighborhood_name)
-        return res
     elif lat and long:
         res = get_neighborhood_info(get_neighborhood_from_coords(lat=lat, long=long))
-        return res
     else:
         raise HTTPException(status_code=404, detail="No neighborhood found for the given coordinates")
+    return res
 
 if __name__ == "__main__":
     import uvicorn
