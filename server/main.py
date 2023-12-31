@@ -18,7 +18,7 @@ app.add_middleware(
 )
 
 geojson_file_path = "C:\\Users\\sugrado\\Desktop\\datathon\\server\\konya_mahalleler.geojson"
-prepared_data_file_path = "C:\\Users\\sugrado\\Desktop\\datathon\\data\\model_data.xlsx"
+prepared_data_file_path = "C:\\Users\\sugrado\\Desktop\\datathon\\data\\model_data_rain_karapinar_update.xlsx"
 categorized_data_file_path = "C:\\Users\\sugrado\\Desktop\\datathon\\data\\product_category.csv"
 
 def get_neighborhood_from_coords(lat: float = Query(None, description="Latitude of the location"),

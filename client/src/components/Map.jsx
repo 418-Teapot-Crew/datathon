@@ -27,7 +27,7 @@ const Map = () => {
         minZoom={8.3}
       >
         <TileLayer
-          attribution="418 Teapot Askerleri"
+          attribution="418 Teapot Datathon 2"
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Counties />
@@ -77,7 +77,7 @@ function drawCountyBoundary(map) {
           L.geoJSON(element.geometry, {
             style: {
               color: 'black',
-              fillColor: getColorByCounty(element.properties.ILCEADI),
+              fillColor: 'yellow',
               weight: 1,
             },
           }).on('click', (e) => {
@@ -115,8 +115,13 @@ function drawNeighbourhoodBoundary(map, bounds) {
               weight: 1,
             },
           }).on('click', async (e) => {
+            // e.target.setStyle({
+            //   fillColor: 'purple',
+            //   weight: 1,
+            // });
             map.fitBounds(e.target.getBounds(), {
               animate: true,
+              maxZoom: 12,
             });
             let response = await fetch(
               `http://localhost:8000/get_neighborhood_info?neighborhood_name=${element.properties.ADI_NUMARA}`
@@ -171,7 +176,7 @@ function drawNeighbourhoodBoundary(map, bounds) {
                       response?.tarimsal_sulama_suyu_kaynagi
                     }</td>
                   </tr>
-                  <tr class="bg-white text-black border border-green-400">
+                  <tr class="bg-green-100 text-black border border-green-400">
                     <td class="py-2 ps-2">Talep edilen tarımsal eğitimler</td>
                     <td class="py-2 ps-2">${
                       response?.talep_edilen_tarimsal_egitimler
@@ -181,15 +186,20 @@ function drawNeighbourhoodBoundary(map, bounds) {
                     <td class="py-2 ps-2">Tarımsal sulama suyu</td>
                     <td class="py-2 ps-2">${response?.tarimsal_sulama_suyu}</td>
                   </tr>
-                  <tr class="bg-white text-black border border-green-400">
+                  <tr class="bg-green-100 text-black border border-green-400">
                     <td class="py-2 ps-2">Toprak tipi</td>
                     <td class="py-2 ps-2">${response?.toprak_tipi}</td>
                   </tr>
-                  <tr class="bg-white-100 text-black border border-green-400">
-                    <td class="py-2 ps-2">Açıklama</td>
-                    <td class="py-2 ps-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</td>
+                  <tr class="bg-white text-black border border-green-400">
+                    <td class="py-2 ps-2">Yağış Miktarı (mm)</td>
+                    <td class="py-2 ps-2">${response['yagis_miktari (mm)']}</td>
                   </tr>
                   <tr class="bg-green-100 text-black border border-green-400">
+                    <td class="py-2 ps-2">Açıklama</td>
+                    <td class="py-2 ps-2">Bu kategori, verimli toprak türlerini temsil eder ve bu topraklar yüksek su ihtiyacına sahiptir. Bu topraklarda bitkilerin sağlıklı bir şekilde büyümesi için düzenli sulama gereklidir.
+                  </td>
+                  </tr>
+                  <tr class="bg-white-100 text-black border border-green-400">
                     <td class="py-2 ps-2">Bu bölge için önerilen ürünler</td>
                     <td class="py-2 ps-2">${response?.suggested_products
                       .map((a) => `${a}<br>`)
@@ -211,21 +221,6 @@ function drawNeighbourhoodBoundary(map, bounds) {
       }
       L.featureGroup(features).addTo(map);
     });
-}
-
-function getColorByCounty(county) {
-  switch (county) {
-    case county:
-      return 'yellow';
-    case 'MERAM':
-    case 'EREĞLİ':
-      return 'yellow';
-    case 'SELÇUKLU':
-    case 'KARATAY':
-      return 'green';
-    default:
-      return 'red';
-  }
 }
 
 const isPolygonInPolygon = (point, geoJSONCoordinates) =>
