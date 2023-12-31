@@ -205,6 +205,18 @@ function drawNeighbourhoodBoundary(map, bounds) {
                       .map((a) => `${a}<br>`)
                       .join('')}</td>
                   </tr>
+                  ${
+                    bounds.properties.ILCEADI == 'KARAPINAR' ? (
+                      `<tr class="bg-white-100 text-black border border-green-400">
+                        <td class="py-2 ps-2">
+                          Bu bölge için önerilmeyen ürünler
+                        </td>
+                        <td class="py-2 ps-2">MISIR</td>
+                      </tr>`
+                    ) : (
+                      ''
+                    )
+                  }
                 </tbody>
               </table></div>`,
                 e.latlng,
