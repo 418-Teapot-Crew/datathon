@@ -38,6 +38,12 @@ DecisionTreeClassifier for decision tree-based classification.
 FastAPI:
 For developing the API to facilitate communication between different components of the system.
 
+Frontend Development:
+React for web frontend development.
+
+Mobile Development:
+Flutter for mobile application development.
+
 ## Data Analysies
 
 ![alt text](./screenshots/7.png)
